@@ -1,28 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  const message = 'Javascript'
+  const courses = [
+    {name: "Angular", id:1},
+    {name: "React Js", id:2},
+    {name: "C#", id:3},
+    {name: "C Programlama", id:4},
+    {name: "Bootstrap", id:5},
+  ];
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>React Native</Text>
-      <Text style={styles.content}>React Js</Text>
-      <Text>{message}</Text>
-    </View>
+    <FlatList 
+    keyExtractor={(item) => item.id}
+    // horizontal
+    // showsHorizontalScrollIndicator = {false}
+    data={courses}
+    renderItem={({item}) => {
+      return <Text style={styles.content}>{item.name}</Text>
+    }}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 50,
-  },
-  content : {
-    fontSize: 20,
-  },
+  content: {
+    fontSize:20,
+    backgroundColor: 'yellow',
+    marginVertical: 10,
+    padding: 20
+  }
 });
