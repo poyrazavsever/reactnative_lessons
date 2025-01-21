@@ -2,10 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const message = 'Javascript'
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! Can Boz</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.title}>React Native</Text>
+      <Text style={styles.content}>React Js</Text>
+      <Text>{message}</Text>
     </View>
   );
 }
@@ -16,5 +18,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  title: {
+    fontSize: 50,
+  },
+  content : {
+    fontSize: 20,
   },
 });
